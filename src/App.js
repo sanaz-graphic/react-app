@@ -1,24 +1,26 @@
-import './App.css';
+ import './App.css';
 import Card from './Card';
 
 function App() {
   return (
-    <div className="App" style={{ padding: '20px', textAlign: 'center' }}>
-      <h1>تیم برنامه‌نویسی من</h1>
+    <div className="min-h-screen bg-gray-50 p-10 text-center">
+      <h1 className="text-3xl font-bold text-gray-800 mb-8">
+        تیم برنامه‌نویسی من
+      </h1>
       
-      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+      <div className="flex justify-center flex-wrap gap-6">
         <Card 
-          name="sanaz" 
+          name="ساناز" 
           role="فرانت‌اند دولوپر" 
           skills={['HTML', 'CSS', 'JavaScript', 'React']} 
         />
         <Card 
-          name="ario" 
+          name="آریو" 
           role="بک‌اند دولوپر" 
           skills={['Python', 'Django', 'SQL']} 
         />
         <Card 
-          name="adrina" 
+          name="آدرینا" 
           role="طراح UI/UX" 
           skills={['Figma', 'Photoshop', 'Illustrator']} 
         />
