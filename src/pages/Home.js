@@ -1,9 +1,16 @@
-import { Link } from 'react-router-dom';
+ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-10">
       <div className="text-center max-w-2xl">
+        
+       <img 
+  src={process.env.PUBLIC_URL + "/profile.jpg"} 
+  alt="ساناز" 
+  className="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-blue-500 object-cover shadow-lg"
+/>
+
         <h1 className="text-5xl font-bold text-gray-800 mb-4">
           سلام! من ساناز هستم
         </h1>
