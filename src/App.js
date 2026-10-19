@@ -1,4 +1,4 @@
- import { BrowserRouter, Routes, Route } from 'react-router-dom';
+ import { HashRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -10,7 +10,7 @@ import WeatherApp from './WeatherApp';
 
 function App() {
   return (
-    <BrowserRouter basename="/react-app">
+    <HashRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,7 +20,7 @@ function App() {
         <Route path="/todo" element={<TodoApp />} />
         <Route path="/weather" element={<WeatherApp />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
