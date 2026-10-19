@@ -1,19 +1,24 @@
+ import { Link } from 'react-router-dom';
+
 function Projects() {
   const projects = [
     {
-      title: 'لیست کارها',
+      title: 'لیست کارها (Todo)',
       description: 'یک اپلیکیشن برای مدیریت کارهای روزانه با قابلیت ذخیره‌سازی خودکار.',
       tech: ['React', 'Tailwind', 'localStorage'],
+      link: '/todo',
     },
     {
       title: 'اپلیکیشن آب‌وهوا',
       description: 'جستجوی آب‌وهوای هر شهر جهان با استفاده از API رایگان Open-Meteo.',
       tech: ['React', 'API', 'async/await'],
+      link: '/weather',
     },
     {
       title: 'کارت پروفایل',
       description: 'کارت پروفایل شخصی با طراحی مدرن و واکنش‌گرا.',
       tech: ['HTML', 'CSS', 'Tailwind'],
+      link: '#',
     },
   ];
 
@@ -36,7 +41,7 @@ function Projects() {
               <p className="text-gray-600 text-sm mb-4 flex-1">
                 {project.description}
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((tech, i) => (
                   <span
                     key={i}
@@ -46,6 +51,18 @@ function Projects() {
                   </span>
                 ))}
               </div>
+              {project.link !== '#' ? (
+                <Link
+                  to={project.link}
+                  className="block text-center bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition"
+                >
+                  مشاهده دمو
+                </Link>
+              ) : (
+                <button disabled className="block w-full text-center bg-gray-300 text-gray-500 px-4 py-2 rounded-lg cursor-not-allowed">
+                  به زودی
+                </button>
+              )}
             </div>
           ))}
         </div>
