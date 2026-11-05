@@ -8,7 +8,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import TodoApp from './pages/TodoApp';
 import WeatherApp from './WeatherApp';
-import { Component } from 'lucide-react';
+import ApiTodos from './pages/ApiTodos';
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/todo" element={<TodoApp />} />
         <Route path="/weather" element={<WeatherApp />} />
+        <Route path="/api-todos" element={<ApiTodos />} />
       </Routes>
       <Footer />
     </HashRouter>
