@@ -4,6 +4,7 @@ function ApiTodos() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   // این useEffect در زمان لود شدن صفحه اجرا می‌شه
   useEffect(() => {
@@ -45,7 +46,9 @@ function ApiTodos() {
       </div>
     );
   }
-
+const filteredTodos = todos.filter(todo => 
+  todo.title.toLowerCase().includes(searchTerm.toLowerCase())
+);
   // نمایش لیست کارها
   return (
     <div className="min-h-screen bg-gray-50 p-10 flex justify-center items-center">
@@ -53,9 +56,16 @@ function ApiTodos() {
         <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           لیست کارها (از API واقعی)
         </h1>
+        <input 
+  type="text" 
+  placeholder="جستجو در کارها..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  className="w-full mb-6 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
+/>
         
         <ul className="list-none p-0">
-          {todos.map((todo) => (
+          {filteredTodos.map((todo) => (
             <li key={todo.id} className="bg-gray-100 p-4 mb-2 rounded-lg border border-gray-200 flex items-center justify-between">
               <span className={todo.completed ? 'line-through text-gray-400' : 'text-gray-800'}>
                 {todo.title}
