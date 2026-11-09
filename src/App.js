@@ -1,4 +1,4 @@
- import { HashRouter, Routes, Route } from 'react-router-dom';
+ import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -9,11 +9,18 @@ import Contact from './pages/Contact';
 import TodoApp from './pages/TodoApp';
 import WeatherApp from './WeatherApp';
 import ApiTodos from './pages/ApiTodos';
+import LandingPage from './pages/LandingPage';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  // چک می‌کنیم که آیا در صفحه لندینگ هستیم یا نه
+  const isLandingPage = location.pathname === '/landing';
+
   return (
-    <HashRouter>
-      <Navbar />
+    <div>
+      {/* اگر در صفحه لندینگ نبودیم، منو و فوتر نمایش داده می‌شوند */}
+      {!isLandingPage && <Navbar />}
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -22,8 +29,18 @@ function App() {
         <Route path="/todo" element={<TodoApp />} />
         <Route path="/weather" element={<WeatherApp />} />
         <Route path="/api-todos" element={<ApiTodos />} />
+        <Route path="/landing" element={<LandingPage />} />
       </Routes>
-      <Footer />
+
+      {!isLandingPage && <Footer />}
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <HashRouter>
+      <AppContent />
     </HashRouter>
   );
 }
